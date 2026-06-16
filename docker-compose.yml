@@ -1,0 +1,24 @@
+version: "3.9"
+
+# docker-compose lets you run your app with a single command
+# instead of typing a long `docker run` command every time
+
+services:
+  skillforge-ai:
+    # Build the image from the Dockerfile in the current directory
+    build:
+      context: .
+      args:
+        # Reads VITE_GEMINI_API_KEY from your .env file automatically
+        VITE_GEMINI_API_KEY: ${VITE_GEMINI_API_KEY}
+
+    # Name the running container
+    container_name: skillforge-ai
+
+    # Map port 3000 on your machine → port 80 inside the container
+    # Access the app at http://localhost:3000
+    ports:
+      - "3000:80"
+
+    # Automatically restart if the container crashes
+    restart: unless-stopped

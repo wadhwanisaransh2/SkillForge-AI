@@ -1,0 +1,38 @@
+# .dockerignore — files Docker will NOT copy into the build context
+# This keeps your image small and build fast
+
+# Node modules — Docker installs these fresh inside the container
+node_modules
+
+# Previous build output — Docker will create a fresh one
+dist
+
+# Git history — not needed in the image
+.git
+.gitignore
+
+# Environment files — pass secrets as build args, never bake into image
+.env
+.env.local
+.env.production
+.env.development
+
+# Editor config
+.vscode
+.idea
+*.suo
+*.sw?
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Python scripts (not needed for the web app)
+*.py
+
+# README (not needed in image)
+README.md
